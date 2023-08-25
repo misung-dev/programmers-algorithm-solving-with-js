@@ -15,3 +15,14 @@ function solution(array) {
 function solution(array) {
 	return array.join("").split("7").length - 1;
 }
+
+// solution 3
+function solution(array) {
+	return array
+		.join("")
+		.split("7")
+		.reduce((acc, v) => {
+			if (v === "7") acc++;
+			return acc;
+		}, 0);
+}
