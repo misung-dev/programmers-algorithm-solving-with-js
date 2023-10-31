@@ -16,5 +16,3 @@ function solution(n, m) {
 
 	return result;
 }
-
-console.log(solution(3, 12));
