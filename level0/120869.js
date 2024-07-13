@@ -1,4 +1,5 @@
-function solution(spell, dic) {
+// solution 1
+function solution1(spell, dic) {
 	for (let i = 0; i < dic.length; i++) {
 		let allIncluded = true;
 
@@ -14,6 +15,11 @@ function solution(spell, dic) {
 	}
 
 	return 2;
+}
+
+// solution 2
+function solution(spell, dic) {
+	return dic.filter((v) => spell.every((c) => v.includes(c))).length ? 1 : 2;
 }
 
 // 테스트 케이스
