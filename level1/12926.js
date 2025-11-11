@@ -1,33 +1,30 @@
 function solution(s, n) {
-	let answer = "";
-	arr = [...s];
+  let answer = "";
+  const arr = s.split("");
 
-	for (i = 0; i < s.length; i++) {
-		if (s[i] === " ") {
-			answer += " ";
-		} else {
-			num = s[i].charCodeAt();
-			let isUpperCase = num >= 65 && num <= 90;
-			let isLowerCase = num >= 97 && num <= 122;
+  for (let i = 0; i < arr.length; i++) {
+    const str = arr[i];
 
-			if (isUpperCase) {
-				num = ((num - 65 + n) % 26) + 65;
-			} else if (isLowerCase) {
-				num = ((num - 97 + n) % 26) + 97;
-			}
-			answer += String.fromCharCode(num);
-		}
-	}
+    if (str === " ") {
+      answer += " ";
+      continue;
+    }
 
-	return answer;
+    const ascii = arr[i].charCodeAt();
+
+    if (ascii >= 65 && ascii <= 90) {
+      answer += String.fromCharCode(((ascii - 65 + n) % 26) + 65);
+    }
+
+    if (ascii >= 97 && ascii <= 122) {
+      answer += String.fromCharCode(((ascii - 97 + n) % 26) + 97);
+    }
+  }
+
+  return answer;
 }
 
 // 테스트 케이스
 console.log(solution("AB", 1)); // "BC"
 console.log(solution("z", 1)); // "a"
 console.log(solution("a B z", 4)); // "e F d"
-
-// 알파벳 내 순환 구현
-// (charCode - base + n) % 26
-// 새로운 ASCII 코드값을 얻기 위해
-// 65, 97을 더해줌
