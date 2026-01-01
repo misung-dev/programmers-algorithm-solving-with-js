@@ -60,6 +60,23 @@ function solution(citations) {
   return 0;
 }
 
+// solution 4
+function solution(citations) {
+  citations.sort((a, b) => b - a);
+
+  let h = 0;
+
+  for (let i = 0; i < citations.length; i++) {
+    if (citations[i] >= i + 1) {
+      h = i + 1;
+    } else {
+      break;
+    }
+  }
+
+  return h;
+}
+
 // 테스트 케이스
 console.log(solution([3, 0, 6, 1, 5])); // 3
 console.log(solution([5, 5, 5, 5, 5])); // 5
